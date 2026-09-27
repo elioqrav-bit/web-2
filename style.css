@@ -1,0 +1,321 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #2b2b2b;
+    line-height: 1.5;
+    background: #fafafa;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===== Header / Navbar (Flexbox) ===== */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #1f1f3a, #2d2d5f);
+    color: #fff;
+    padding: 18px 50px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #7fb8ff;
+}
+
+/* ===== Card row (Flexbox) ===== */
+
+.cards {
+    display: flex;
+    gap: 28px;
+    padding: 50px;
+    flex-wrap: wrap;
+    background: #fafafa;
+}
+
+.card {
+    flex: 1 1 260px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    transition: 0.25s;
+}
+
+.card:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15);
+    transform: translateY(-6px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-body h3 {
+    margin-bottom: 10px;
+    font-size: 19px;
+}
+
+.card-body p {
+    color: #666;
+    margin-bottom: 18px;
+    font-size: 14.5px;
+}
+
+.card-body button {
+    margin-top: auto;
+    padding: 10px 18px;
+    border: none;
+    background: #2d2d5f;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    width: fit-content;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.card-body button:hover {
+    background: #4646a0;
+}
+
+/* ===== Page layout with grid areas (Task 2) ===== */
+
+.grid-page {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    grid-template-rows: 75px 1fr 60px;
+    grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+    min-height: 100vh;
+}
+
+.g-header {
+    grid-area: header;
+    background: linear-gradient(90deg, #1f1f3a, #2d2d5f);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
+}
+
+.g-sidebar {
+    grid-area: sidebar;
+    background: #f1f1f6;
+    padding: 25px 20px;
+}
+
+.g-sidebar li {
+    list-style: none;
+    margin-bottom: 16px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.g-sidebar li:hover {
+    background: #e2e2f0;
+}
+
+.g-main {
+    grid-area: main;
+    padding: 30px;
+}
+
+.g-main h3 {
+    margin-bottom: 12px;
+}
+
+.g-footer {
+    grid-area: footer;
+    background: #1f1f3a;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* ===== Image gallery (Task 3) ===== */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 50px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+    color: #fff;
+    padding: 14px 10px 8px;
+    opacity: 0;
+    transition: opacity 0.25s;
+    font-weight: 500;
+}
+
+.gallery-item:hover .caption {
+    opacity: 1;
+}
+
+/* ===== Portfolio page (Task 4) ===== */
+
+.portfolio-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+    padding: 50px;
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.projects h2 {
+    margin-bottom: 6px;
+    color: #1f1f3a;
+}
+
+.project-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.2s;
+}
+
+.project-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.project-card .project-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.project-card .project-text p {
+    color: #666;
+    font-size: 14px;
+}
+
+.project-card button {
+    padding: 9px 16px;
+    border: none;
+    background: #2d2d5f;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.project-card button:hover {
+    background: #4646a0;
+}
+
+.sidebar-info {
+    background: #fff;
+    padding: 24px;
+    border-radius: 10px;
+    height: fit-content;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-info h3 {
+    color: #1f1f3a;
+    margin-bottom: 10px;
+}
+
+.sidebar-info p {
+    color: #666;
+    font-size: 14.5px;
+}
+
+.site-footer {
+    background: #1f1f3a;
+    color: #ccc;
+    text-align: center;
+    padding: 18px;
+    font-size: 14px;
+}
+
+.page-links {
+    display: flex;
+    gap: 24px;
+    padding: 14px 50px;
+    background: #eeeef5;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.page-links a:hover {
+    color: #4646a0;
+}
